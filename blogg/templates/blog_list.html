@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Articles{% endblock title %}
+
+{% block a %}
+
+{% for blog in object_list %}
+    <div class="card">
+        <div class="card-header">
+            <span class="font-weight-bold">{{ blog.title }}</span> 
+            <span class="text-muted">by {{ blog.author }} |{{ blog.date }}</span>
+        </div>
+        <div class="card-body">
+        {{ blog.body }}
+        </div>
+        <div class="card-footer text-center text-muted">
+            <a href="{% url 'blog_edit' blog.pk %}">Edit</a> |
+            <a href="{% url 'blog_delete' blog.pk %}">Delete</a>
+        </div>
+            
+    </div>
+    <br>
+{% endfor %}
+
+{% endblock a %}

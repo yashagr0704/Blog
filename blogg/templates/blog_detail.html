@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block a %}
+    <div class="article-entry">
+    <h2>{{ object.title }}</h2>
+    <p>by {{ object.author }} | {{ object.date }}</p>
+    <p>{{ object.body }}</p>
+    </div>
+    <div class="card-footer text-center text-muted">
+        <a href="{% url 'blog_edit' blog.pk %}">Edit</a> |
+        <a href="{% url 'blog_delete' blog.pk %}">Delete</a>
+    </div>
+        
+</div>
+    <p>Back to <a href="{% url 'blog_list' %}">All blog</a>.</p>
+{% endblock a %}

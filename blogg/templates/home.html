@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block a %}
+   
+<div class="jumbotron">
+    <h1 class="display-4">BLOGGERS</h1>
+    <p class="lead">A Blogging website built with Django.</p>
+    
+</div>
+{% if user.is_authenticated %}
+    <div class="jumbotron">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'blog_list' %}"
+            role="button">View All blog</a>
+        </p>
+    </div>
+{% else %}
+    <br>
+    <p class="lead">Login to view bloggs</p>
+{% endif %}
+{% endblock a %}
